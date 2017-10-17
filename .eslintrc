@@ -1,7 +1,8 @@
 {
   "extends": "airbnb",
   "rules": {
-      "semi": ["off", "always"]
+      "semi": ["off", "always"],
+      "function-paren-newline": ["error", "never"]
   }
 
 }

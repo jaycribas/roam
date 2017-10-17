@@ -1,23 +1,39 @@
 const express = require('express')
 const path = require('path')
+const users = require('./models/db/users')
+const bodyParser = require('body-parser')
 
 const app = express()
 
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, '/views'))
 app.use(express.static('public'))
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
   res.render('index')
 })
 
-app.get('/login', (req, res) => {
-  res.render('auth/login')
-})
+app.route('/login')
+  .get((req, res) => {
+    res.render('auth/login')
+  })
 
-app.get('/signup', (req, res) => {
-  res.render('auth/signup')
-})
+app.route('/signup')
+  .get((req, res) => {
+    res.render('auth/signup')
+  })
+  .post((req, res) => {
+    const user = {
+      email: req.body.email,
+      password: req.body.password,
+    }
+    users.create(user)
+      .then(() => {
+        res.redirect('/')
+      })
+  })
 
 const port = process.env.PORT || 3000
 app.listen(port, () => {
