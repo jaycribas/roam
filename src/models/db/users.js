@@ -1,7 +1,7 @@
 const db = require('./db')
 
-const create = (user) => {
-  return db.query(`
+const create = function create(user) {
+  return db.one(`
     INSERT INTO
       users (email, password)
     VALUES
@@ -12,10 +12,28 @@ const create = (user) => {
     .catch((error) => {
       console.error({
         message: 'Error while executing users.create!',
-        arguments,
+        arguments
       })
       throw error
     })
 }
 
-module.exports = { create }
+const find = function find(user) {
+  return db.oneOrNone(`
+    SELECT * FROM
+      users
+    WHERE
+      email = $/email/
+    AND
+      password = $/password/
+  `, user)
+    .catch((error) => {
+      console.error({
+        message: 'Error while executing users.find!',
+        arguments
+      })
+      throw error
+    })
+}
+
+module.exports = { create, find }
