@@ -19,6 +19,22 @@ app.route('/login')
   .get((req, res) => {
     res.render('auth/login')
   })
+  .post((req, res) => {
+    const user = {
+      email: req.body.email,
+      password: req.body.password
+    }
+    users.find(user)
+      .then((data) => {
+        if(!data){
+          return res.send('nope')
+        }
+        res.send('welcome')
+      })
+      .catch((error) => {
+        console.error(error.message)
+      })
+  })
 
 app.route('/signup')
   .get((req, res) => {
@@ -27,7 +43,7 @@ app.route('/signup')
   .post((req, res) => {
     const user = {
       email: req.body.email,
-      password: req.body.password,
+      password: req.body.password
     }
     users.create(user)
       .then(() => {
