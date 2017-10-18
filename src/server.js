@@ -1,7 +1,7 @@
 const express = require('express')
 const path = require('path')
-const users = require('./models/db/users')
 const bodyParser = require('body-parser')
+const routes = require('./server/routes')
 
 const app = express()
 
@@ -11,45 +11,7 @@ app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-app.get('/', (req, res) => {
-  res.render('index')
-})
-
-app.route('/login')
-  .get((req, res) => {
-    res.render('auth/login', {warning: ''})
-  })
-  .post((req, res) => {
-    const user = {
-      email: req.body.email,
-      password: req.body.password
-    }
-    users.find(user)
-      .then((data) => {
-        if (!data) {
-          return res.status(401).render('auth/login', {warning: 'Invalid email or password'})
-        }
-        res.redirect('/')
-      })
-      .catch((error) => {
-        console.error(error.message)
-      })
-  })
-
-app.route('/signup')
-  .get((req, res) => {
-    res.render('auth/signup')
-  })
-  .post((req, res) => {
-    const user = {
-      email: req.body.email,
-      password: req.body.password
-    }
-    users.create(user)
-      .then(() => {
-        res.redirect('/')
-      })
-  })
+app.use('/', routes)
 
 const port = process.env.PORT || 3000
 app.listen(port, () => {
