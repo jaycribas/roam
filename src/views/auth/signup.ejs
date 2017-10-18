@@ -1,0 +1,15 @@
+<%- include ../partials/header.ejs %>
+
+  <h1>Sign Up</h1>
+
+  <form method='post' action='/signup'>
+    <fieldset>
+      <legend>New User</legend>
+      <input type='text' name='email' placeholder='email'><br>
+      <input type='password' name='password' placeholder='password'><br>
+      <!-- <input type='password' name='confirmPassword' placeholder='confirm password'><br> -->
+      <input type='submit' value='Submit'>
+    </fieldset>
+  </form>
+
+<%- include ../partials/footer.ejs %>
