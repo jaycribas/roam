@@ -1,0 +1,42 @@
+body {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+/* NAVBAR */
+
+.logo {
+  font-weight: 900;
+  font-size: 2em;
+}
+
+a.logo, a.nav-link {
+  text-decoration: none;
+  color: black;
+}
+
+a.logo:hover {
+  text-decoration: none;
+}
+
+.navbar {
+  padding: .2rem 0;
+  margin-bottom: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+img.logo {
+  height: 40px;
+}
+
+.nav-links {
+  margin-bottom: 0;
+
+}
+
+.masthead {
+  background-color: yellow;
+  margin-bottom: 30px;
+}
