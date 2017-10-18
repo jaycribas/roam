@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
 
 app.route('/login')
   .get((req, res) => {
-    res.render('auth/login')
+    res.render('auth/login', {warning: ''})
   })
   .post((req, res) => {
     const user = {
@@ -26,10 +26,10 @@ app.route('/login')
     }
     users.find(user)
       .then((data) => {
-        if(!data){
-          return res.send('nope')
+        if (!data) {
+          return res.status(401).render('auth/login', {warning: 'Invalid email or password'})
         }
-        res.send('welcome')
+        res.redirect('/')
       })
       .catch((error) => {
         console.error(error.message)
