@@ -13,6 +13,25 @@ p {
   max-width: 1100px;
 }
 
+/* INDEX */
+.search {
+  text-align: center;
+}
+
+input.index-search[type="text"] {
+  display: block;
+  margin : 0 auto;
+}
+
+.index-splash {
+  padding-top: 2.5rem;
+  margin: auto;
+}
+
+.form-control {
+  margin-bottom: .3rem;
+}
+
 /* NAVBAR */
 li.nav-item:nth-last-child(-n+1) a {
   padding-right: 0;
