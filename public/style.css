@@ -1,12 +1,27 @@
 body {
   font-family: 'Ubuntu', sans-serif;
+  padding-top: 3.5rem;
+}
+
+p {
+  font-weight: 400;
+  line-height: 30px;
+  font-size: .9em;
+}
+
+.container {
+  max-width: 1100px;
 }
 
 /* NAVBAR */
+li.nav-item:nth-last-child(-n+1) a {
+  padding-right: 0;
+}
 
 .logo {
   font-weight: 900;
   font-size: 2em;
+  letter-spacing:-1.5px;
 }
 
 a.logo, a.nav-link {
@@ -37,6 +52,37 @@ img.logo {
 }
 
 .masthead {
+  height: 3.5rem;
   background-color: yellow;
-  margin-bottom: 30px;
+}
+
+/* PROFILE */
+#user-name {
+  font-weight: 900;
+}
+
+#user-join-date {
+  font-size: .7em;
+}
+
+.profile-main, .profile-sidebar {
+  padding-top: 2.5rem;
+}
+
+.profile-details {
+  padding-top: 1.5rem;
+}
+
+.city-name {
+  font-size: 1.2rem;
+  color: #343434;
+}
+
+a.city-name {
+  text-decoration: none;
+  color: black;
+}
+
+.tool {
+  height: 12px;
 }
