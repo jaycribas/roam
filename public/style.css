@@ -29,6 +29,7 @@ input.index-search[type="text"] {
 
 .index-splash {
   margin: auto;
+  margin-bottom: 2rem;
 }
 
 .form-control {
@@ -79,11 +80,11 @@ img.logo {
 }
 
 /* PROFILE */
-#user-name {
+.user-name {
   font-weight: 900;
 }
 
-#user-join-date {
+.user-join-date {
   font-size: .7em;
 }
 
