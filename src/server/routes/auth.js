@@ -22,6 +22,10 @@ router.route('/login')
       })
   })
 
+router.get('/logout', (req, res) => {
+  res.redirect('/')
+})
+
 router.route('/signup')
   .get((req, res) => {
     res.render('auth/signup')
