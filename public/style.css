@@ -112,3 +112,9 @@ a.city-name {
   height: 75px;
   width: 75px;
 }
+
+/* NEW POST */
+.new-post-form {
+  max-width: 600px;
+  margin: auto;
+}
