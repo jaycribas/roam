@@ -1,8 +1,11 @@
 const router = require('express').Router()
-const users = require('../../models/db/users')
+
+router.get('/new', (req, res) => {
+  res.render('posts/new')
+})
 
 router.get('/:id', (req, res) => {
-  res.render('users/profile')
+  res.render('posts/post')
 })
 
 module.exports = router

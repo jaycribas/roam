@@ -1,6 +1,6 @@
 const router = require('express').Router()
 
-router.get('/:city', (req, res) => {
+router.get('/:id', (req, res) => {
   res.render('city')
 })
 
