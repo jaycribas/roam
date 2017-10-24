@@ -114,6 +114,37 @@ a.city-name {
   width: 75px;
 }
 
+.parallax {
+  /* Set a specific height */
+  height: 100vh;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.parallax-caption {
+  position: absolute;
+  left: 0;
+  top: 30%;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.parallax-caption span.border {
+  padding: 18px;
+  font-size: 4rem;
+}
+
+.border {
+  border: 0 !important;
+}
+
 /* NEW POST */
 .new-post-form {
   max-width: 600px;
