@@ -2,7 +2,7 @@ const router = require('express').Router()
 const users = require('../../models/db/users')
 
 router.route('/login')
-  .get((req, res, next) => {
+  .get((req, res) => {
     res.render('auth/login', { warning: '' })
   })
   .post((req, res, next) => {
@@ -36,11 +36,14 @@ router.route('/signup')
       email: req.body.email,
       password: req.body.password
     }
-    users.create(user)
-      .then(() => {
-        req.session.user = user
-        res.redirect('/profile')
-      })
+    if (req.body.password === req.body.confirmPassword) {
+      return users.create(user)
+        .then((newUser) => {
+          req.session.user = newUser
+          return res.redirect(`/user/${newUser.id}`)
+        })
+    }
+    return res.render('auth/signup', { warning: 'Passwords do not match.' })
   })
 
 module.exports = router

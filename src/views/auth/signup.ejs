@@ -10,9 +10,10 @@
         <form method='post' action='/signup'>
           <fieldset>
             <legend>New User</legend>
-            <input type='text' name='email' placeholder='email'><br>
+            <pre class='login-error'><%= warning %></pre>
+            <input type='email' name='email' placeholder='email'><br>
             <input type='password' name='password' placeholder='password'><br>
-            <!-- <input type='password' name='confirmPassword' placeholder='confirm password'><br> -->
+            <input type='password' name='confirmPassword' placeholder='confirm password'><br>
             <input type='submit' value='Submit'>
           </fieldset>
         </form>
