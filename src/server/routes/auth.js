@@ -2,23 +2,24 @@ const router = require('express').Router()
 const users = require('../../models/db/users')
 
 router.route('/login')
-  .get((req, res) => {
+  .get((req, res, next) => {
     res.render('auth/login', { warning: '' })
   })
-  .post((req, res) => {
+  .post((req, res, next) => {
     const user = {
       email: req.body.email,
       password: req.body.password
     }
     users.find(user)
-      .then((data) => {
-        if (!data) {
+      .then((match) => {
+        if (!match) {
           return res.status(401).render('auth/login', { warning: 'Invalid email or password' })
         }
-        return res.redirect('/')
+        req.session.user = match
+        return res.redirect(`/user/${match.id}`)
       })
       .catch((error) => {
-        console.error(error.message)
+        next(error)
       })
   })
 
@@ -37,7 +38,8 @@ router.route('/signup')
     }
     users.create(user)
       .then(() => {
-        res.redirect('/')
+        req.session.user = user
+        res.redirect('/profile')
       })
   })
 

@@ -5,15 +5,17 @@
         <a class='logo' href='/'><img class='logo' src="/images/logo.svg" alt="roam-logo"></a>
         <a class='logo' href='/'>&nbsp;roam</a>
       </div>
-
-      <!-- <ul class='navbar'>
-        <li class='nav-item'><a class='nav-link' href='/login'>login</a></li>
-        <li class='nav-item'><a class='nav-link' href='/signup'>signup</a></li>
-      </ul> -->
-      <ul class='navbar'>
+      <% if(isLoggedIn){ %>
+        <ul class='navbar'>
         <li class='nav-item'><a class='nav-link' href='/user/1'>profile</a></li>
         <li class='nav-item'><a class='nav-link' href='/logout'>logout</a></li>
-      </ul>
+        </ul>
+      <% } else{ %>
+        <ul class='navbar'>
+        <li class='nav-item'><a class='nav-link' href='/login'>login</a></li>
+        <li class='nav-item'><a class='nav-link' href='/signup'>signup</a></li>
+        </ul>
+      <% } %>
     </nav>
   </div>
 </div>

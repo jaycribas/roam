@@ -2,6 +2,8 @@ const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
 const routes = require('./server/routes')
+const morgan = require('morgan')
+const middlewares = require('./server/middlewares')
 
 const app = express()
 
@@ -10,6 +12,8 @@ app.set('views', path.join(__dirname, '/views'))
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+app.use(morgan('dev'))
+app.use(middlewares.setDefaultResponseLocals)
 
 app.use('/', routes)
 
