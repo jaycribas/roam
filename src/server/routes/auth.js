@@ -24,6 +24,7 @@ router.route('/login')
   })
 
 router.get('/logout', (req, res) => {
+  req.session.destroy()
   res.redirect('/')
 })
 
