@@ -3,9 +3,9 @@ const db = require('./db')
 const create = function create(user) {
   return db.one(`
     INSERT INTO
-      users (email, password)
+      users (email, password, joined_on)
     VALUES
-      ($/email/, $/password/)
+      ($/email/, $/password/, NOW())
     RETURNING
       *
   `, user)
@@ -20,7 +20,9 @@ const create = function create(user) {
 
 const find = function find(user) {
   return db.oneOrNone(`
-    SELECT * FROM
+    SELECT
+      id, email, password, city, TO_CHAR(joined_on, 'MM/YYYY') AS joined_on
+    FROM
       users
     WHERE
       email = $/email/

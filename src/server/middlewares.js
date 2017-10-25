@@ -9,11 +9,12 @@ const sessionChecker = (req, res, next) => {
 const isLoggedIn = (req, res, next) => {
   if (req.session.user) {
     res.locals.isLoggedIn = true
-    next()
+    return next()
   } next()
 }
 
 const setDefaultResponseLocals = (req, res, next) => {
+  res.locals.title = 'Roam'
   res.locals.warning = ''
   res.locals.isLoggedIn = false
   next()
