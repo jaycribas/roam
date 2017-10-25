@@ -4,6 +4,7 @@ const posts = require('../../models/db/posts')
 
 router.get('/:id', (req, res) => {
   const user = req.session.user
+  console.log("user (╯°□°）╯︵ ┻━┻", user)
   const id = user.id
   posts.findByUserId(id)
     .then((dbPosts) => {

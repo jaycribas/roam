@@ -20,7 +20,9 @@ const create = function create(user) {
 
 const find = function find(user) {
   return db.oneOrNone(`
-    SELECT * FROM
+    SELECT
+      id, email, password, city, TO_CHAR(joined_on, 'MM/YYYY') AS joined_on
+    FROM
       users
     WHERE
       email = $/email/
