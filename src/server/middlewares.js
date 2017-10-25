@@ -14,6 +14,7 @@ const isLoggedIn = (req, res, next) => {
 }
 
 const setDefaultResponseLocals = (req, res, next) => {
+  res.locals.title = 'Roam'
   res.locals.warning = ''
   res.locals.isLoggedIn = false
   next()
