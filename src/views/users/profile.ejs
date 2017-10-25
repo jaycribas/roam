@@ -20,7 +20,7 @@
 
       <% posts.forEach(function(post) { %>
         <dt class="col-sm-3 city-name">
-        <a href='/posts/1' class='city-name'><%= post.title %></a>
+        <a href='/posts/<%= post.id %>' class='city-name'><%= post.title %></a>
         <div>
         <a class='tool-button' href='#'><img class='tool' src="/images/edit-button.svg" alt="edit-button"></a>
         <a class='tool-button' href='#'><img class='tool' src="/images/delete-button.svg" alt="delete-button"></a>
