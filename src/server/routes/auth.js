@@ -3,7 +3,7 @@ const users = require('../../models/db/users')
 
 router.route('/login')
   .get((req, res) => {
-    res.render('auth/login', { warning: '' })
+    res.render('auth/login')
   })
   .post((req, res, next) => {
     const user = {
@@ -16,7 +16,7 @@ router.route('/login')
           return res.status(401).render('auth/login', { warning: 'Invalid email or password' })
         }
         req.session.user = match
-        return res.redirect(`/user/${match.id}`)
+        res.redirect(`/user/${match.id}`)
       })
       .catch((error) => {
         next(error)

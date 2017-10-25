@@ -3,9 +3,9 @@ const db = require('./db')
 const create = function create(user) {
   return db.one(`
     INSERT INTO
-      users (email, password)
+      users (email, password, joined_on)
     VALUES
-      ($/email/, $/password/)
+      ($/email/, $/password/, NOW())
     RETURNING
       *
   `, user)
