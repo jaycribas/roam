@@ -22,9 +22,10 @@ const findByIdWithAuthor = (id) => {
   return db.one(`
     SELECT
       posts.id,
+      user_id,
       title,
       body,
-      TO_CHAR(posted_on, 'MM/DD/YYYY') AS posted_on, 
+      TO_CHAR(posted_on, 'MM/DD/YYYY') AS posted_on,
       email,
       city,
       TO_CHAR(joined_on, 'MM/YYYY') AS joined_on

@@ -8,7 +8,13 @@ router.get('/new', (req, res) => {
 router.get('/:id', (req, res) => {
   posts.findByIdWithAuthor(req.params.id)
     .then((post) => {
-      const user = { email: post.email, city: post.city, joined_on: post.joined_on }
+      const user = {
+        id: post.user_id,
+        email: post.email,
+        city: post.city,
+        joined_on: post.joined_on
+      }
+
       res.render('posts/post', { post, user })
     })
 })
