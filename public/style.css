@@ -104,6 +104,7 @@ a.city-name {
 
 .tool {
   height: 12px;
+  transition: none;
 }
 
 .edit-button {
