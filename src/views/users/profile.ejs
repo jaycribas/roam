@@ -2,24 +2,18 @@
 <div class='container content'>
 
   <div class='row'>
-    <%- include ../partials/user-details.ejs %> 
+    <%- include ../partials/user-details.ejs %>
     <div class='col-sm-9 offset-sm-1 profile-main'>
       <dl class="row">
 
       <% posts.forEach(function(post) { %>
         <dt class="col-sm-3 city-name">
-        <a href='/posts/<%= post.id %>' class='city-name'><%= post.title %></a>
-        <div>
-        <a class='tool-button' href='#'><img class='tool' src="/images/edit-button.svg" alt="edit-button"></a>
-        <a class='tool-button' href='#'><img class='tool' src="/images/delete-button.svg" alt="delete-button"></a>
-        </div>
+          <a href='/posts/<%= post.id %>' class='city-name'><%= post.title %></a>
         </dt>
         <dd class="col-sm-9">
-        <p><%= post.body %></p>
+          <p><%= post.body %></p>
         </dd>
-
       <% }) %>
-
 
     </div>
   </div>

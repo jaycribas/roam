@@ -36,6 +36,13 @@ const findByIdWithAuthor = (id) => {
     WHERE
       posts.id = $1::int
   `, id)
+    .catch((error) => {
+      console.error({
+        message: 'Error while executing posts.findByIdWithAuthor :(',
+        arguments
+      })
+      throw error
+    })
 }
 
 const findByUserId = (id) => {
@@ -52,11 +59,38 @@ const findByUserId = (id) => {
       })
       throw error
     })
+}
+
+const findByCityId = (id) => {
+  return db.any(`
+    SELECT
+      posts.id,
+      cities.name,
+      body,
+      email,
+      TO_CHAR(posted_on, 'MM/DD/YYYY') AS posted_on
+    FROM
+      posts
+    JOIN
+      cities ON cities.id = city_id
+    JOIN
+      users ON user_id = users.id
+    WHERE
+      city_id = $1::int
+  `, id)
+    .catch((error) => {
+      console.error({
+        message: 'Error while executing posts.findByCityId :(',
+        arguments
+      })
+      throw error
+    })
 
 }
 
 module.exports = {
   create,
   findByIdWithAuthor,
-  findByUserId
+  findByUserId,
+  findByCityId
 }

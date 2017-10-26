@@ -3,7 +3,6 @@ const users = require('../../models/db/users')
 const posts = require('../../models/db/posts')
 
 router.get('/:id', (req, res) => {
-  console.log("req.params.id (╯°□°）╯︵ ┻━┻", req.params.id)
   users.readProfile(req.params.id)
     .then((foundUser) => {
       posts.findByUserId(foundUser.id)
