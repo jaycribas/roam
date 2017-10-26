@@ -8,10 +8,18 @@
     <div class='row index-splash justify-content-center'>
       <div class='col-md-auto'>
         <h4>Where do you want to go?</h4>
-        <form class='input-group-vertical input-group-lg' method='get' action='/cities/1'>
-          <input class='form-control' type='search' placeholder='Search for a city'/>
-          <button class='btn btn-block' type='submit'>Search</button>
-        </form>
+
+        <div class="dropdown text-center">
+          <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Select a city
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <% cities.forEach(function(city) { %>
+              <a class="dropdown-item" href="/cities/<%= city.id %>"><%= city.name %></a>
+            <% }) %>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
