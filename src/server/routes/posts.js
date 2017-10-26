@@ -12,7 +12,8 @@ router.get('/:id', (req, res) => {
         id: post.user_id,
         email: post.email,
         city: post.city,
-        joined_on: post.joined_on
+        joined_on: post.joined_on,
+        img_url: post.user_img
       }
 
       res.render('posts/post', { post, user })

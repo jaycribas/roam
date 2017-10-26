@@ -41,7 +41,7 @@ const find = (user) => {
 const readProfile = (id) => {
   return db.one(`
     SELECT
-      id, email, city, TO_CHAR(joined_on, 'MM/YYYY') AS joined_on
+      id, email, city, TO_CHAR(joined_on, 'MM/YYYY') AS joined_on, img_url
     FROM
       users
     WHERE
