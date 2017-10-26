@@ -106,6 +106,22 @@ a.city-name {
   height: 12px;
 }
 
+.edit-button {
+  padding: 0;
+}
+
+.edit-button:hover {
+  cursor: pointer;
+}
+
+.modal-header {
+  border-bottom: 0;
+}
+
+.modal-footer {
+  border-top: 0;
+}
+
 /* CITY PAGE */
 .img-thumbnail {
   border: 0 none;

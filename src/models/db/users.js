@@ -1,6 +1,6 @@
 const db = require('./db')
 
-const create = function create(user) {
+const create = (user) => {
   return db.one(`
     INSERT INTO
       users (email, password, joined_on)
@@ -18,7 +18,7 @@ const create = function create(user) {
     })
 }
 
-const find = function find(user) {
+const find = (user) => {
   return db.oneOrNone(`
     SELECT
       id, email, password, city, TO_CHAR(joined_on, 'MM/YYYY') AS joined_on
@@ -38,4 +38,40 @@ const find = function find(user) {
     })
 }
 
-module.exports = { create, find }
+const readProfile = (id) => {
+  return db.one(`
+    SELECT
+      id, email, city, TO_CHAR(joined_on, 'MM/YYYY') AS joined_on
+    FROM
+      users
+    WHERE
+      id = $1::int
+  `, id)
+    .catch((error) => {
+      console.error({
+        message: 'Error while executing users.readProfile!',
+        arguments
+      })
+      throw error
+    })
+}
+
+const update = (user) => {
+  return db.one(`
+    UPDATE
+      users
+    SET
+      city = $/city/
+    WHERE
+      id = $/id/
+    RETURNING
+      *
+  `, user)
+}
+
+module.exports = {
+  create,
+  find,
+  readProfile,
+  update
+}
