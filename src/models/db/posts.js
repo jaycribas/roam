@@ -1,6 +1,6 @@
 const db = require('./db')
 
-const create = function create(post) {
+const create = (post) => {
   return db.one(`
     INSERT INTO
       posts (user_id, city_id, title, body, posted_on)
@@ -18,7 +18,26 @@ const create = function create(post) {
     })
 }
 
-const findByUserId = function findPostsByUserId(id) {
+const findByIdWithAuthor = (id) => {
+  return db.one(`
+    SELECT
+      posts.id,
+      title,
+      body,
+      TO_CHAR(posted_on, 'MM/DD/YYYY') AS posted_on, 
+      email,
+      city,
+      TO_CHAR(joined_on, 'MM/YYYY') AS joined_on
+    FROM
+      posts
+    JOIN
+      users ON users.id = user_id
+    WHERE
+      posts.id = $1::int
+  `, id)
+}
+
+const findByUserId = (id) => {
   return db.any(`
     SELECT * FROM
       posts
@@ -37,5 +56,6 @@ const findByUserId = function findPostsByUserId(id) {
 
 module.exports = {
   create,
+  findByIdWithAuthor,
   findByUserId
 }
