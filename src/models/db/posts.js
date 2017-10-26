@@ -23,6 +23,7 @@ const findByIdWithAuthor = (id) => {
     SELECT
       posts.id,
       user_id,
+      users.img_url AS user_img,
       title,
       body,
       TO_CHAR(posted_on, 'MM/DD/YYYY') AS posted_on,
