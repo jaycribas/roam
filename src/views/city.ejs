@@ -1,5 +1,5 @@
 <%- include ./partials/header.ejs %>
-  <div class='parallax splash img-fluid' style='background-image:url("https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Oldoakland02262006.JPG/1920px-Oldoakland02262006.JPG")'>
+  <div class='parallax splash img-fluid' style='background-image:url("<%= posts[0].img_url %>")'>
     <div class='parallax-caption'>
       <span class='border'><%= city_name %></span>
     </div>
@@ -14,11 +14,11 @@
     <% posts.forEach(function(post) { %>
       <div class='col-sm-3 profile-sidebar'>
         <div class='img-thumbnail rounded float-left'>
-          <img class='rounded img-fluid' src='http://lorempixel.com/output/cats-q-c-400-400-5.jpg'/>
+          <img class='rounded img-fluid' src='<%= post.user_img %>'/>
         </div>
         <div class='post-details'>
           <h6 class='user-name'><%= post.email %></h6>
-          <h6 class='user-join-date'><%= post.posted_on %></h6>
+          <h6 class='user-join-date'>Posted on <br><%= post.posted_on %></h6>
         </div>
       </div>
 

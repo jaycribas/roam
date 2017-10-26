@@ -66,8 +66,11 @@ const findByCityId = (id) => {
     SELECT
       posts.id,
       cities.name,
+      cities.img_url,
       body,
+      users.img_url AS user_img,
       email,
+      posted_on AS post_date,
       TO_CHAR(posted_on, 'MM/DD/YYYY') AS posted_on
     FROM
       posts
@@ -77,6 +80,8 @@ const findByCityId = (id) => {
       users ON user_id = users.id
     WHERE
       city_id = $1::int
+    ORDER BY
+      post_date DESC
   `, id)
     .catch((error) => {
       console.error({
