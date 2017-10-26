@@ -18,6 +18,32 @@ p {
 }
 
 /* INDEX */
+#bg {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+}
+
+#bg img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  min-width: 50%;
+  min-height: 50%;
+}
+
+.cities-dropdown {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .search {
   text-align: center;
 }
@@ -136,6 +162,7 @@ a.city-name {
   height: 100vh;
 
   /* Create the parallax scrolling effect */
+  background-size: cover;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -144,7 +171,7 @@ a.city-name {
 .parallax-caption {
   position: absolute;
   left: 0;
-  top: 30%;
+  top: 40%;
   width: 100%;
   text-align: center;
   color: white;

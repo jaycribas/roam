@@ -1,17 +1,16 @@
 <%- include ./partials/header.ejs %>
-
-  <div>
-    <img class='splash img-fluid' src='http://lorempixel.com/output/nature-q-g-1920-480-8.jpg' />
+  <div id='bg'>
+    <img src='images/index-background.jpg' />
   </div>
 
-  <div class='container content'>
+  <div class='cities-dropdown container content'>
     <div class='row index-splash justify-content-center'>
       <div class='col-md-auto'>
         <h4>Where do you want to go?</h4>
 
         <div class="dropdown text-center">
           <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Select a city
+            Pick a city
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <% cities.forEach(function(city) { %>
