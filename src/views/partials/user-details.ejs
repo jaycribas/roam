@@ -23,7 +23,7 @@
           </button>
         </div>
         <div class='modal-body'>
-          <form method='post' action='/user/edit-profile'>
+          <form method='post' action='/user/edit-profile/<%= user.id %>'>
             <input type='text' name='city' value='<%= user.city %>'>
             <div class='modal-footer'>
               <button type='button' class='btn btn-sm btn-secondary' data-dismiss='modal'>Cancel</button>

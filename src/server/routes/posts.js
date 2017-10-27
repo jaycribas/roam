@@ -1,8 +1,9 @@
 const router = require('express').Router()
 const posts = require('../../models/db/posts')
 
-router.get('/new', (req, res) => {
-  res.render('posts/new')
+router.post('/new', (req, res) => {
+  posts.create(req.body)
+    .then(() => res.redirect('back'))
 })
 
 router.get('/:id', (req, res) => {

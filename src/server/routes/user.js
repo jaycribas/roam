@@ -15,13 +15,20 @@ router.get('/:id', (req, res) => {
     })
 })
 
-router.post('/edit-profile', (req, res) => {
+router.post('/edit-profile/:id', (req, res) => {
+  const id = Number(req.params.id)
   const user = req.session.user
   user.city = req.body.city
-  users.update(user)
-    .then(() => {
-      res.redirect('back')
-    })
+  if (id === user.id) {
+    return users.update(user)
+      .then(() => {
+        return res.redirect('back')
+      })
+      .catch((error) => {
+        console.log(`Error at POST edit-profile/${id}`, error)
+      })
+  }
+  return res.status(401).send('Unauthorized')
 })
 
 module.exports = router

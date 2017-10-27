@@ -20,7 +20,7 @@ router.use('/', authRoutes)
 router.get('/', (req, res) => {
   cities.getAll()
     .then((allCities) => {
-      res.render('index', { cities: allCities })
+      res.render('index', { cities: allCities, user: req.session.user })
     })
 })
 router.use('/cities', citiesRoutes)
