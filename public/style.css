@@ -1,6 +1,7 @@
 body {
   font-family: 'Ubuntu', sans-serif;
   padding-top: 3.5rem;
+  background-color: #fff8f0;
 }
 
 p {
@@ -102,7 +103,7 @@ img.logo {
 
 .masthead {
   height: 3.5rem;
-  background-color: yellow;
+  background-color: #ffe463;
 }
 
 /* PROFILE */

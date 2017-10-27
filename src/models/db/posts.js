@@ -66,6 +66,7 @@ const findByCityId = (id) => {
   return db.any(`
     SELECT
       posts.id,
+      cities.id AS city_id,
       cities.name,
       cities.img_url,
       body,

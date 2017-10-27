@@ -7,7 +7,10 @@
 
   <div class='container content'>
     <div class='row index-splash justify-content-center'>
-      <a class='btn btn-dark' href='/posts/new' role='button'>Add your travel tip</a>
+      <button type='button' class='btn btn-dark' data-toggle='modal' data-target='#profile-details'>
+        Add your travel tip
+      </button>
+
     </div>
     <div class='row index-splash justify-content-center'>
 
@@ -29,5 +32,5 @@
 
     </div>
   </div>
-
+<%- include ./posts/new.ejs %>
 <%- include ./partials/footer.ejs %>
