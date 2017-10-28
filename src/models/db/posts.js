@@ -70,6 +70,7 @@ const findByCityId = (id) => {
       cities.name,
       cities.img_url,
       body,
+      users.id AS user_id,
       users.img_url AS user_img,
       email,
       posted_on AS post_date,

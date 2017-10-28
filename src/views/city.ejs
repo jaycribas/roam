@@ -17,10 +17,10 @@
     <% posts.forEach(function(post) { %>
       <div class='col-sm-3 profile-sidebar'>
         <div class='img-thumbnail rounded float-left'>
-          <img class='rounded img-fluid' src='<%= post.user_img %>'/>
+          <a href='/user/<%= post.user_id %>'><img class='rounded img-fluid' src='<%= post.user_img %>'/></a>
         </div>
         <div class='post-details'>
-          <h6 class='user-name'><%= post.email %></h6>
+          <a href='/user/<%= post.user_id %>' class='small-link'><h6 class='user-name'><%= post.email %></h6></a>
           <h6 class='user-join-date'>Posted on <br><%= post.posted_on %></h6>
         </div>
       </div>

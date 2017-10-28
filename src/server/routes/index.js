@@ -23,8 +23,8 @@ router.get('/', (req, res) => {
       res.render('index', { cities: allCities, user: req.session.user })
     })
 })
-router.use('/cities', citiesRoutes)
 router.use(middlewares.sessionChecker)
+router.use('/cities', citiesRoutes)
 router.use('/user', userRoutes)
 router.use('/posts', postsRoutes)
 
