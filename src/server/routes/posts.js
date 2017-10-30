@@ -17,7 +17,7 @@ router.get('/:id', (req, res) => {
         img_url: post.user_img
       }
 
-      res.render('posts/post', { post, user })
+      res.render('posts/post', { post, user }, { title: 'Roam | New Post' })
     })
 })
 

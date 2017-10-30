@@ -3,7 +3,7 @@ const users = require('../../models/db/users')
 
 router.route('/login')
   .get((req, res) => {
-    res.render('auth/login')
+    res.render('auth/login', { title: 'Roam | Title' })
   })
   .post((req, res, next) => {
     const user = {
@@ -30,7 +30,7 @@ router.get('/logout', (req, res) => {
 
 router.route('/signup')
   .get((req, res) => {
-    res.render('auth/signup')
+    res.render('auth/signup', { title: 'Roam | Sign Up' })
   })
   .post((req, res) => {
     const user = {
