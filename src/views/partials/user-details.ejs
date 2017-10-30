@@ -24,7 +24,10 @@
         </div>
         <div class='modal-body'>
           <form method='post' action='/user/edit-profile/<%= user.id %>'>
-            <input type='text' name='city' value='<%= user.city %>'>
+            <label>Home City&nbsp;</label>
+            <input type='text' name='city' value='<%= user.city %>'><br />
+            <label>Profile pic URL&nbsp;</label>
+            <input type='text' name='img_url' value='<%= user.img_url %>'>
             <div class='modal-footer'>
               <button type='button' class='btn btn-sm btn-secondary' data-dismiss='modal'>Cancel</button>
               <button type='submit' class='btn btn-sm btn-dark'>Update</button>

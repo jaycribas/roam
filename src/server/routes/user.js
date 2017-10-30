@@ -7,7 +7,11 @@ router.get('/:id', (req, res) => {
     .then((foundUser) => {
       posts.findByUserId(foundUser.id)
         .then((dbPosts) => {
-          return res.render('users/profile', { user: foundUser, posts: dbPosts, title: 'Roam | Profile' })
+          return res.render('users/profile', {
+            user: foundUser,
+            posts: dbPosts,
+            title: 'Roam | Profile'
+          })
         })
     })
     .catch((error) => {
@@ -19,6 +23,7 @@ router.post('/edit-profile/:id', (req, res) => {
   const id = Number(req.params.id)
   const user = req.session.user
   user.city = req.body.city
+  user.img_url = req.body.img_url
   if (id === user.id) {
     return users.update(user)
       .then(() => {
