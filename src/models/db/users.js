@@ -61,7 +61,8 @@ const update = (user) => {
     UPDATE
       users
     SET
-      city = $/city/
+      city = $/city/,
+      img_url = $/img_url/
     WHERE
       id = $/id/
     RETURNING
