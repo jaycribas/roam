@@ -3,7 +3,7 @@ const users = require('../../models/db/users')
 
 router.route('/login')
   .get((req, res) => {
-    res.render('auth/login', { title: 'Roam | Title' })
+    res.render('auth/login', { title: 'Roam | Log In' })
   })
   .post((req, res, next) => {
     const user = {
@@ -13,10 +13,10 @@ router.route('/login')
     users.find(user)
       .then((match) => {
         if (!match) {
-          return res.status(401).render('auth/login', { warning: 'Invalid email or password' })
+          return res.status(401).render('auth/login', { warning: 'Invalid email or password', title: 'Roam | Log In' })
         }
         req.session.user = match
-        res.redirect(`/user/${match.id}`)
+        return res.redirect(`/user/${match.id}`)
       })
       .catch((error) => {
         next(error)
@@ -44,7 +44,7 @@ router.route('/signup')
           return res.redirect(`/user/${newUser.id}`)
         })
     }
-    return res.render('auth/signup', { warning: 'Passwords do not match.' })
+    return res.render('auth/signup', { warning: 'Passwords do not match.', title: 'Roam | Sign Up' })
   })
 
 module.exports = router
