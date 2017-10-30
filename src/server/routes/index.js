@@ -20,7 +20,7 @@ router.use('/', authRoutes)
 router.get('/', (req, res) => {
   cities.getAll()
     .then((allCities) => {
-      res.render('index', { cities: allCities, user: req.session.user }, { title: 'Roam | Home' })
+      res.render('index', { cities: allCities, user: req.session.user, title: 'Roam | Home' })
     })
 })
 router.use(middlewares.sessionChecker)
