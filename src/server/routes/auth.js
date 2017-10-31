@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const users = require('../../models/db/users')
+const utils = require('../utils')
 
 router.route('/login')
   .get((req, res) => {
@@ -17,8 +18,11 @@ router.route('/login')
             title: 'Roam | Log In'
           })
         }
-        req.session.user = user
-        return res.redirect(`/user/${user.id}`)
+        return utils.compareHash(req.body.password, user.password)
+          .then(() => {
+            req.session.user = user
+            return res.redirect(`/user/${user.id}`)
+          })
       })
       .catch((error) => {
         next(error)
@@ -48,10 +52,14 @@ router.route('/signup')
         title: 'Roam | Sign Up'
       })
     }
-    return users.create(user)
-      .then((newUser) => {
-        req.session.user = newUser
-        return res.redirect(`/user/${newUser.id}`)
+    utils.hashPassword(user.password)
+      .then((hash) => {
+        user.password = hash
+        return users.create(user)
+          .then((newUser) => {
+            req.session.user = newUser
+            return res.redirect(`/user/${newUser.id}`)
+          })
       })
   })
 
