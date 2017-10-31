@@ -3,9 +3,9 @@ const db = require('./db')
 const create = (user) => {
   return db.one(`
     INSERT INTO
-      users (email, password, joined_on)
+      users (email, password, joined_on, city, img_url)
     VALUES
-      ($/email/, $/password/, NOW())
+      ($/email/, $/password/, NOW(), 'The World', '/images/blank-profile-picture.png')
     RETURNING
       *
   `, user)
@@ -26,8 +26,6 @@ const find = (user) => {
       users
     WHERE
       email = $/email/
-    AND
-      password = $/password/
   `, user)
     .catch((error) => {
       console.error({
