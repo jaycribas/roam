@@ -9,7 +9,13 @@ const compareHash = (plainTextPassword, hash) => {
   return bcrypt.compare(plainTextPassword, hash)
 }
 
+const formatDate = (timestamp) => {
+  const month = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+  return month[timestamp.getMonth()] + ' ' + timestamp.getFullYear()
+}
+
 module.exports = {
   hashPassword,
-  compareHash
+  compareHash,
+  formatDate
 }

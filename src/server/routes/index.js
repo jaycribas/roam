@@ -7,7 +7,6 @@ const session = require('express-session')
 const middlewares = require('../middlewares')
 const cities = require('../../models/db/cities')
 
-
 router.use(session({
   key: 'user_sid',
   secret: 'roam secret',
