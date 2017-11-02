@@ -42,17 +42,14 @@ router.route('/signup')
   })
 
   .post((req, res) => {
-    const user = {
-      email: req.body.email,
-      password: req.body.password
-    }
+    const user = req.body
     if (req.body.password !== req.body.confirmPassword) {
       return res.render('auth/signup', {
         warning: 'Passwords do not match.',
         title: 'Roam | Sign Up'
       })
     }
-    utils.hashPassword(user.password)
+    return utils.hashPassword(user.password)
       .then((hash) => {
         user.password = hash
         return users.create(user)

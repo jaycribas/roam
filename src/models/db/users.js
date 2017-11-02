@@ -3,9 +3,9 @@ const db = require('./db')
 const create = (user) => {
   return db.one(`
     INSERT INTO
-      users (email, password, joined_on, city, img_url)
+      users (name, email, password, joined_on, city, img_url)
     VALUES
-      ($/email/, $/password/, NOW(), 'The World', '/images/blank-profile-picture.png')
+      ($/name/, $/email/, $/password/, NOW(), $/city/, '/images/blank-profile-picture.png')
     RETURNING
       *
   `, user)
@@ -21,7 +21,7 @@ const create = (user) => {
 const find = (user) => {
   return db.oneOrNone(`
     SELECT
-      id, email, password, city, TO_CHAR(joined_on, 'MM/YYYY') AS joined_on
+      *
     FROM
       users
     WHERE
@@ -39,7 +39,7 @@ const find = (user) => {
 const readProfile = (id) => {
   return db.one(`
     SELECT
-      id, email, city, TO_CHAR(joined_on, 'MM/YYYY') AS joined_on, img_url
+      *
     FROM
       users
     WHERE
