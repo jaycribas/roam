@@ -12,7 +12,8 @@ router.get('/:id', (req, res) => {
           return res.render('users/profile', {
             user: foundUser,
             posts: dbPosts,
-            title: 'Roam | Profile'
+            title: 'Roam | Profile',
+            session_user_id: req.session.user.id
           })
         })
     })

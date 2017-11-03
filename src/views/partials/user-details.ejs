@@ -7,9 +7,11 @@
     <h4 class='user-name'><a class='city-name' href='/user/<%= user.id %>'><%= user.name %></a></h4>
     <h6 class='user-city'><%= user.city %></h6>
     <h6 class='user-join-date'>Joined <%= user.joined_on %></h6>
-    <button type='button' class='btn btn-link edit-button' data-toggle='modal' data-target='#profile-details'>
+    <% if(user.id == session_user_id){ %>
+      <button type='button' class='btn btn-link edit-button' data-toggle='modal' data-target='#profile-details'>
       <img class='tool' src='/images/edit-button.svg' alt='edit-button'>
-    </button>
+      </button>
+    <% } %>
 
   </div>
 
