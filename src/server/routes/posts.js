@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const posts = require('../../models/db/posts')
+const utils = require('../utils')
 
 router.post('/new', (req, res) => {
   posts.create(req.body)
@@ -11,13 +12,14 @@ router.get('/:id', (req, res) => {
     .then((post) => {
       const user = {
         id: post.user_id,
+        name: post.user_name,
         email: post.email,
         city: post.city,
         joined_on: post.joined_on,
         img_url: post.user_img
       }
-
-      res.render('posts/post', { post, user, title: 'Roam | New Post' })
+      user.joined_on = utils.formatDate(user.joined_on)
+      res.render('posts/post', { post, user, title: 'Roam | New Post', session_user_id: req.session.user.id })
     })
 })
 

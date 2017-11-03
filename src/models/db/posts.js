@@ -24,12 +24,13 @@ const findByIdWithAuthor = (id) => {
       posts.id,
       user_id,
       users.img_url AS user_img,
+      users.name AS user_name,
       title,
       body,
       TO_CHAR(posted_on, 'MM/DD/YYYY') AS posted_on,
       email,
       city,
-      TO_CHAR(joined_on, 'MM/YYYY') AS joined_on
+      users.joined_on
     FROM
       posts
     JOIN
@@ -71,6 +72,7 @@ const findByCityId = (id) => {
       cities.img_url,
       body,
       users.id AS user_id,
+      users.name AS user_name,
       users.img_url AS user_img,
       email,
       posted_on AS post_date,
