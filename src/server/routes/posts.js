@@ -19,7 +19,12 @@ router.get('/:id', (req, res) => {
         img_url: post.user_img
       }
       user.joined_on = utils.formatDate(user.joined_on)
-      res.render('posts/post', { post, user, title: 'Roam | New Post', session_user_id: req.user.id })
+      res.render('posts/post', {
+        post,
+        user,
+        title: 'Roam | New Post',
+        loggedin_user_id: req.user.id
+      })
     })
 })
 

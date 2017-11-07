@@ -18,7 +18,7 @@ const create = (user) => {
     })
 }
 
-const find = (user) => {
+const findByEmail = (user) => {
   return db.oneOrNone(`
     SELECT
       *
@@ -36,7 +36,7 @@ const find = (user) => {
     })
 }
 
-const readProfile = (id) => {
+const findById = (id) => {
   return db.one(`
     SELECT
       *
@@ -47,7 +47,7 @@ const readProfile = (id) => {
   `, id)
     .catch((error) => {
       console.error({
-        message: 'Error while executing users.readProfile!',
+        message: 'Error while executing users.findById!',
         arguments
       })
       throw error
@@ -70,7 +70,7 @@ const update = (user) => {
 
 module.exports = {
   create,
-  find,
-  readProfile,
+  findByEmail,
+  findById,
   update
 }
