@@ -13,7 +13,7 @@ router.get('/:id', (req, res) => {
             user: foundUser,
             posts: dbPosts,
             title: 'Roam | Profile',
-            session_user_id: req.session.user.id
+            session_user_id: req.user.id
           })
         })
     })
@@ -24,7 +24,7 @@ router.get('/:id', (req, res) => {
 
 router.post('/edit-profile/:id', (req, res) => {
   const id = Number(req.params.id)
-  const user = req.session.user
+  const user = req.user
   user.city = req.body.city
   user.img_url = req.body.img_url
   if (id === user.id) {

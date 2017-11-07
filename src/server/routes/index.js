@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
     .then((allCities) => {
       res.render('index', {
         cities: allCities,
-        user: req.session.user,
+        user: req.user,
         title: 'Roam | Home'
       })
     })

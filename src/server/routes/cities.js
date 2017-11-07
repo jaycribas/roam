@@ -8,7 +8,7 @@ router.get('/:id', (req, res) => {
       res.render('city', {
         city_name: cityName,
         posts: dbPosts,
-        user: req.session.user,
+        user: req.user,
         title: `Roam | ${cityName}`
       })
     })

@@ -9,6 +9,7 @@ const sessionChecker = (req, res, next) => {
 const isLoggedIn = (req, res, next) => {
   if (req.session.user) {
     res.locals.isLoggedIn = true
+    req.user = req.session.user
     return next()
   } next()
 }
