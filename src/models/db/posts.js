@@ -85,7 +85,6 @@ const findByCityId = (id) => {
       })
       throw error
     })
-
 }
 
 const update = (post) => {
@@ -100,6 +99,29 @@ const update = (post) => {
     RETURNING
       *
   `, post)
+    .catch((error) => {
+      console.error({
+        message: 'Error while executing posts.update :(',
+        arguments
+      })
+      throw error
+    })
+}
+
+const destroy = (post) => {
+  return db.none(`
+    DELETE FROM
+      posts
+    WHERE
+      id = $/id/
+  `, post)
+    .catch((error) => {
+      console.error({
+        message: 'Error while executing posts.destroy :(',
+        arguments
+      })
+      throw error
+    })
 }
 
 module.exports = {
@@ -107,5 +129,6 @@ module.exports = {
   findById,
   findByUserId,
   findByCityId,
-  update
+  update,
+  destroy
 }
