@@ -43,6 +43,9 @@ const findByUserId = (id) => {
       posts
     WHERE
       user_id = $1::int
+    ORDER BY
+      posted_on
+    DESC
   `, id)
     .catch((error) => {
       console.error({
