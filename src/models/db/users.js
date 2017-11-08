@@ -39,7 +39,8 @@ const findByEmail = (user) => {
 const findById = (id) => {
   return db.one(`
     SELECT
-      *
+      *,
+      TO_CHAR(joined_on, 'Mon YYYY') AS joined_on
     FROM
       users
     WHERE

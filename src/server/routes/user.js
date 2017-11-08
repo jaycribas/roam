@@ -1,12 +1,9 @@
 const router = require('express').Router()
 const users = require('../../models/db/users')
-const posts = require('../../models/db/posts')
-const utils = require('../utils')
 
 router.get('/:id', (req, res) => {
   users.findById(req.params.id)
     .then((user) => {
-      user.joined_on = utils.formatDate(user.joined_on)
       posts.findByUserId(user.id)
         .then(userPosts => res.render('users/profile', {
           user,
