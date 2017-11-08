@@ -105,13 +105,13 @@ After each sprint, **deploy to heroku** to get practice getting the app online. 
 - ~~See an iconic photo of the city on the city page.~~
 - ~~View a list of posts on the Oakland page.~~
 - ~~See posts on city page sorted by newest first.~~
-- Click on post titles to go to the individual post "show" pages.
+- ~~Click on post titles to go to the individual post "show" pages.~~
 - ~~Use an "Add New Post" button on the Oakland city page to pull up the new post form.~~
 - ~~Create a new post for Oakland~~
-- Click "Edit" on ANY individual post, and be redirected to the edit form.
-- Click "delete" on ANY individual post.
-- See a pop-up that says: "Are you sure you want to delete {{title}}?" when clicking "delete"
-- Have the post deleted when confirming the pop-up.
+- ~~Click "Edit" on ANY individual post, and be redirected to the edit form.~~
+- ~~Click "delete" on ANY individual post.~~
+- ~~See a pop-up that says: "Are you sure you want to delete {{title}}?" when clicking "delete"~~
+- ~~Have the post deleted when confirming the pop-up.~~
 
 ##### Stretch
 
