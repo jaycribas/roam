@@ -25,7 +25,9 @@
           </button>
         </div>
         <div class='modal-body'>
-          <form method='post' action='/user/edit-profile/<%= user.id %>'>
+          <form method='post' action='/user/<%= user.id %>?_method=PUT'>
+            <label>Name&nbsp;</label>
+            <input type='text' name='name' value='<%= user.name %>'/><br />
             <label>Home City&nbsp;</label>
             <input type='text' name='city' value='<%= user.city %>'><br />
             <label>Profile pic URL&nbsp;</label>

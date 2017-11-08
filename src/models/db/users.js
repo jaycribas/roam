@@ -60,6 +60,7 @@ const update = (user) => {
     UPDATE
       users
     SET
+      name = $/name/,
       city = $/city/,
       img_url = $/img_url/
     WHERE
