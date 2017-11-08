@@ -18,29 +18,19 @@ const create = (post) => {
     })
 }
 
-const findByIdWithAuthor = (id) => {
+const findById = (id) => {
   return db.one(`
     SELECT
-      posts.id,
-      user_id,
-      users.img_url AS user_img,
-      users.name AS user_name,
-      title,
-      body,
-      TO_CHAR(posted_on, 'MM/DD/YYYY') AS posted_on,
-      email,
-      city,
-      users.joined_on
+      *,
+      TO_CHAR(posted_on, 'MM/DD/YYYY') AS posted_on
     FROM
       posts
-    JOIN
-      users ON users.id = user_id
     WHERE
-      posts.id = $1::int
+      id = $1::int
   `, id)
     .catch((error) => {
       console.error({
-        message: 'Error while executing posts.findByIdWithAuthor :(',
+        message: 'Error while executing posts.findById :(',
         arguments
       })
       throw error
@@ -100,7 +90,7 @@ const findByCityId = (id) => {
 
 module.exports = {
   create,
-  findByIdWithAuthor,
+  findById,
   findByUserId,
   findByCityId
 }

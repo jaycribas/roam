@@ -10,7 +10,7 @@ router.route('/login')
   })
 
   .post((req, res, next) => {
-    users.find(req.body)
+    users.findByEmail(req.body)
       .then((user) => {
         if (!user) {
           return res.status(401).render('auth/login', {
