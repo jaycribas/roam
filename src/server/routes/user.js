@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const users = require('../../models/db/users')
+const posts = require('../../models/db/posts')
 
 router.get('/:id', (req, res) => {
   users.findById(req.params.id)
