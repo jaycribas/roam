@@ -8,10 +8,9 @@
         </button>
       </div>
       <div class='modal-body'>
-        <form method='put' action='/posts/edit/<% post.id %>'>
+        <form method='post' action='/posts/edit/<%= post.id %>'>
           <input type='text' name='title' value='<%= post.title %>' required>
-          <input type='hidden' name='user_id' value='<%= post.user_id %>'>
-          <input type='hidden' name='city_id' value='<%= post.city_id %>'>
+          <input type='hidden' name='id' value='<%= post.id %>'>
           <textarea name='body' class='form-control' rows='8' required><%= post.body %></textarea>
           <div class='modal-footer'>
             <button type='button' class='btn btn-sm btn-secondary' data-dismiss='modal'>Cancel</button>

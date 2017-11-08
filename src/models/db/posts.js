@@ -88,9 +88,24 @@ const findByCityId = (id) => {
 
 }
 
+const update = (post) => {
+  return db.one(`
+    UPDATE
+      posts
+    SET
+      title = $/title/,
+      body = $/body/
+    WHERE
+      id = $/id/
+    RETURNING
+      *
+  `, post)
+}
+
 module.exports = {
   create,
   findById,
   findByUserId,
-  findByCityId
+  findByCityId,
+  update
 }

@@ -23,4 +23,9 @@ router.get('/:id', (req, res) => {
     })
 })
 
+router.post('/edit/:id', (req, res) => {
+  posts.update(req.body)
+    .then(() => res.redirect('back'))
+})
+
 module.exports = router
