@@ -9,7 +9,7 @@
       </div>
       <div class='modal-body'>
         Are you sure you want to delete: <br />"<span class='city-name user-name'><%= post.title %></span>"?
-        <form method='post' action='/posts/delete/<%= post.id %>'>
+        <form method='post' action='/posts/<%= post.id %>?_method=DELETE'>
           <input type='hidden' name='id' value='<%= post.id %>'>
           <div class='modal-footer'>
             <button type='button' class='btn btn-sm btn-secondary' data-dismiss='modal'>Cancel</button>
