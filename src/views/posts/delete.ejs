@@ -1,20 +1,19 @@
-<div class='modal fade' id='edit-post' tabindex='-1' role='dialog' aria-hidden='true'>
+<div class='modal fade' id='delete-post' tabindex='-1' role='dialog' aria-hidden='true'>
   <div class='modal-dialog' role='document'>
     <div class='modal-content'>
       <div class='modal-header'>
-        <h5 class='modal-title'>Edit Post</h5>
+        <h5 class='modal-title'>Delete post?</h5>
         <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
           <span aria-hidden='true'>&times;</span>
         </button>
       </div>
       <div class='modal-body'>
-        <form method='post' action='/posts/edit/<%= post.id %>'>
-          <input type='text' name='title' value='<%= post.title %>' required>
+        Are you sure you want to delete: <br />"<span class='city-name user-name'><%= post.title %></span>"?
+        <form method='post' action='/posts/delete/<%= post.id %>'>
           <input type='hidden' name='id' value='<%= post.id %>'>
-          <textarea name='body' class='form-control' rows='8' required><%= post.body %></textarea>
           <div class='modal-footer'>
             <button type='button' class='btn btn-sm btn-secondary' data-dismiss='modal'>Cancel</button>
-            <button type='submit' class='btn btn-sm btn-dark'>Update</button>
+            <button type='submit' class='btn btn-sm btn-dark'>Delete</button>
           </div>
         </form>
       </div>

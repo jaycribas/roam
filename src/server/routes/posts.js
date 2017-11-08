@@ -23,4 +23,14 @@ router.get('/:id', (req, res) => {
     })
 })
 
+router.post('/edit/:id', (req, res) => {
+  posts.update(req.body)
+    .then(() => res.redirect('back'))
+})
+
+router.post('/delete/:id', (req, res) => {
+  posts.destroy(req.body)
+    .then(() => res.redirect(`/user/${req.user.id}`))
+})
+
 module.exports = router
