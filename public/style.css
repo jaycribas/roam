@@ -6,8 +6,10 @@ body {
 
 p {
   font-weight: 400;
-  line-height: 30px;
-  font-size: .9em;
+  line-height: 35px;
+  font-size: .95em;
+  vertical-align: top;
+  margin-top: -4px;
 }
 
 .container {
@@ -98,7 +100,6 @@ img.logo {
 
 .nav-links {
   margin-bottom: 0;
-
 }
 
 .masthead {
@@ -106,7 +107,16 @@ img.logo {
   background-color: #ffe463;
 }
 
+/* FORMS */
+.error-message {
+  color: red;
+}
+
 /* PROFILE */
+dd {
+  margin-bottom: 40px;
+}
+
 .user-name {
   font-weight: 900;
 }

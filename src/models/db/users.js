@@ -1,24 +1,29 @@
 const db = require('./db')
+const utils = require('../../utils')
 
 const create = (user) => {
-  return db.one(`
-    INSERT INTO
-      users (name, email, password, joined_on, city, img_url)
-    VALUES
-      ($/name/, $/email/, $/password/, NOW(), $/city/, '/images/blank-profile-picture.png')
-    RETURNING
-      *
-  `, user)
-    .catch((error) => {
-      console.error({
-        message: 'Error while executing users.create!',
-        arguments
-      })
-      throw error
+  return utils.hashPassword(user.password)
+    .then((hash) => {
+      user.password = hash
+      return db.one(`
+        INSERT INTO
+        users (name, email, password, joined_on, city, img_url)
+        VALUES
+        ($/name/, lower($/email/), $/password/, NOW(), $/city/, '/images/blank-profile-picture.png')
+        RETURNING
+        *
+        `, user)
+        .catch((error) => {
+          console.error({
+            message: 'Error while executing users.create!',
+            arguments
+          })
+          throw error
+        })
     })
 }
 
-const findByEmail = (user) => {
+const login = (user) => {
   return db.oneOrNone(`
     SELECT
       *
@@ -27,17 +32,24 @@ const findByEmail = (user) => {
     WHERE
       email = $/email/
   `, user)
+    .then((dbUser) => {
+      return utils.compareHash(user.password, dbUser.password)
+        .then((match) => {
+          if (!match) throw Error
+          else return dbUser
+        })
+    })
     .catch((error) => {
-      console.error({
-        message: 'Error while executing users.find!',
-        arguments
+      console.log({
+        message: 'Error while executing users.login!',
+        error
       })
       throw error
     })
 }
 
 const findById = (id) => {
-  return db.one(`
+  return db.oneOrNone(`
     SELECT
       *,
       TO_CHAR(joined_on, 'Mon YYYY') AS joined_on
@@ -68,11 +80,18 @@ const update = (user) => {
     RETURNING
       *
   `, user)
+    .catch((error) => {
+      console.error({
+        message: 'Error while executing users.update!',
+        arguments
+      })
+      throw error
+    })
 }
 
 module.exports = {
   create,
-  findByEmail,
+  login,
   findById,
   update
 }
