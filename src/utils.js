@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt')
-const saltRounds = 10
 
 const hashPassword = (plainTextPassword) => {
+  const saltRounds = 10
   return bcrypt.hash(plainTextPassword, saltRounds)
 }
 

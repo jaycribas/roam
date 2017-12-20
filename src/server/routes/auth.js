@@ -1,6 +1,5 @@
 const router = require('express').Router()
 const users = require('../../models/db/users')
-const utils = require('../utils')
 
 router.route('/login')
   .get((req, res) => {
@@ -9,25 +8,18 @@ router.route('/login')
     })
   })
 
-  .post((req, res, next) => {
-    users.findByEmail(req.body)
+  .post((req, res) => {
+    users.login(req.body)
       .then((user) => {
-        if (!user) {
-          return res.status(401).render('auth/login', {
-            warning: 'Invalid email or password',
-            title: 'Roam | Log In'
-          })
-        }
-        return utils.compareHash(req.body.password, user.password)
-          .then(() => {
-            req.session.user = user
-            return res.redirect(`/user/${user.id}`)
-          })
+        req.session.user = user
+        return res.redirect(`/user/${user.id}`)
       })
-      .catch((error) => {
-        next(error)
-      })
+      .catch(() => res.status(401).render('auth/login', {
+        warning: 'Invalid email or password',
+        title: 'Roam | Log In'
+      }))
   })
+
 
 router.get('/logout', (req, res) => {
   req.session.destroy()
@@ -43,20 +35,16 @@ router.route('/signup')
 
   .post((req, res) => {
     const user = req.body
-    if (req.body.password !== req.body.confirmPassword) {
+    if (user.password !== user.confirmPassword) {
       return res.render('auth/signup', {
         warning: 'Passwords do not match.',
         title: 'Roam | Sign Up'
       })
     }
-    return utils.hashPassword(user.password)
-      .then((hash) => {
-        user.password = hash
-        return users.create(user)
-          .then((newUser) => {
-            req.session.user = newUser
-            return res.redirect(`/user/${newUser.id}`)
-          })
+    return users.create(user)
+      .then((newUser) => {
+        req.session.user = newUser
+        return res.redirect(`/user/${newUser.id}`)
       })
   })
 

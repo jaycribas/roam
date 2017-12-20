@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const posts = require('../../models/db/posts')
 const users = require('../../models/db/users')
-const utils = require('../utils')
+const utils = require('../../utils')
 
 router.post('/new', (req, res) => {
   posts.create(req.body)

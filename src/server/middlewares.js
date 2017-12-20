@@ -1,16 +1,13 @@
 const sessionChecker = (req, res, next) => {
-  if (req.session.user) {
-    next()
-  } else {
-    res.redirect('/login')
-  }
+  if (!req.session.user) {
+    return res.redirect('/login')
+  } next()
 }
 
 const isLoggedIn = (req, res, next) => {
   if (req.session.user) {
     res.locals.isLoggedIn = true
     req.user = req.session.user
-    return next()
   } next()
 }
 

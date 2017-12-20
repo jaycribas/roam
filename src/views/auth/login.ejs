@@ -5,13 +5,11 @@
       <div class='col-md-auto'>
         <h1>Log In</h1>
         <form method='post' action='/login'>
-          <fieldset>
-            <legend>Welcome back</legend>
-            <pre class='login-error'><%= warning %></pre>
-            <input type='text' name='email' placeholder='email' required><br>
-            <input type='password' name='password' placeholder='password' required><br>
-            <input type='submit' value='Submit'>
-          </fieldset>
+          <legend>Welcome back</legend>
+          <pre class='error-message'><%= warning %></pre>
+          <input type='text' name='email' placeholder='email' required><br>
+          <input type='password' name='password' placeholder='password' required><br>
+          <input type='submit' value='Submit' class='btn btn-dark btn-block'>
         </form>
       </div>
     </div>
