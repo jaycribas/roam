@@ -83,6 +83,7 @@ a.logo, a.nav-link {
 
 a.logo:hover {
   text-decoration: none;
+  color: inherit;
 }
 
 .navbar {
@@ -131,17 +132,24 @@ dd {
 
 .city-name {
   font-size: 1.2rem;
-  color: #343434;
 }
 
-a.small-link {
-  text-decoration: none;
+a {
   color: black;
+  text-decoration: none;
 }
 
-a.city-name {
+a:hover {
+  color: #005fac;
   text-decoration: none;
-  color: black;
+  transition: all 0.5s ease;
+}
+
+.post-city-name {
+  color: #c63102;
+  font-size: .7em;
+  margin-top: .7em;
+  text-transform: uppercase;
 }
 
 .tool {
