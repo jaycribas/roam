@@ -9,6 +9,9 @@
       <% posts.forEach(function(post) { %>
         <dt class="col-sm-3 city-name">
           <a href='/posts/<%= post.id %>' class='city-name'><%= post.title %></a>
+          <a href='/cities/<%= post.city_id %>'>
+            <h6 class='city-name post-city-name'><%= post.name %></h6>
+          </a>
         </dt>
         <dd class="col-sm-9">
           <p><%= post.body %></p>

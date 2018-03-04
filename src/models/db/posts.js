@@ -41,6 +41,8 @@ const findByUserId = (id) => {
   return db.any(`
     SELECT * FROM
       posts
+    JOIN
+      cities ON cities.id = city_id
     WHERE
       user_id = $1::int
     ORDER BY
