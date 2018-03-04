@@ -4,19 +4,22 @@ const users = require('../../models/db/users')
 router.route('/login')
   .get((req, res) => {
     res.render('auth/login', {
-      title: 'Roam | Log In'
+      title: 'Roam | Log In',
+      redirectUrl: req.query.REDIRECT_URL
     })
   })
 
   .post((req, res) => {
     users.login(req.body)
       .then((user) => {
+        const redirectUrl = req.query.REDIRECT_URL || `/user/${user.id}`
         req.session.user = user
-        return res.redirect(`/user/${user.id}`)
+        return res.redirect(redirectUrl)
       })
       .catch(() => res.status(401).render('auth/login', {
         warning: 'Invalid email or password',
-        title: 'Roam | Log In'
+        title: 'Roam | Log In',
+        redirectUrl: req.query.REDIRECT_URL
       }))
   })
 

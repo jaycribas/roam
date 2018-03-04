@@ -112,11 +112,13 @@ const update = (post) => {
 }
 
 const destroy = (post) => {
-  return db.none(`
+  return db.oneOrNone(`
     DELETE FROM
       posts
     WHERE
       id = $/id/
+    RETURNING
+      *
   `, post)
     .catch((error) => {
       console.error({
