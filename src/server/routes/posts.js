@@ -32,6 +32,7 @@ router.route('/:id')
   .delete((req, res) => {
     posts.destroy(req.body)
       .then(() => res.redirect(`/user/${req.user.id}`))
+      .catch((error) => { console.log(error) })
   })
 
 module.exports = router

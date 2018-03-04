@@ -4,7 +4,7 @@
     <div class='row index-splash justify-content-center'>
       <div class='col-md-auto'>
         <h1>Log In</h1>
-        <form method='post' action='/login'>
+        <form method='post' action='/login?REDIRECT_URL=<%= redirectUrl %>'>
           <legend>Welcome back</legend>
           <pre class='error-message'><%= warning %></pre>
           <input type='text' name='email' placeholder='email' required><br>
