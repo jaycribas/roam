@@ -28,7 +28,8 @@
     "db:schema": "psql roam_db < ./src/models/db/schema/schema.sql",
     "db:seed": "psql roam_db < ./src/models/db/load-data.sql",
     "db:reset": "npm run db:drop && npm run db:create && npm run db:schema && npm run db:seed",
-    "start": "nodemon src/server",
+    "start": "node src/server",
+    "start:dev": "nodemon src/server",
     "test": "mocha"
   },
   "repository": {
