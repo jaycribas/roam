@@ -1,6 +1,6 @@
 # Roam
 
-A travel community for users to share tips about their favorite locations around the world.
+A travel community for users to share tips about their favorite locations around the world. A user can create an account, update their profile, and leave travel trips on featured cities.
 
 ## Getting Started
 
@@ -44,3 +44,11 @@ Run local server and navigate to `http://localhost:3000` in browser.
 ```
 $ npm start
 ```
+
+## Built With
+
+* [Express](https://expressjs.com/) - Node.js web application framework
+* [Postgres](https://www.postgresql.org/) - SQL relational database
+* [bcrypt](https://github.com/kelektiv/node.bcrypt.js) - Library used to hash user passwords
+* [EJS](http://ejs.co/) - views templating language to produce reusable HTML
+* [Bootstrap](https://getbootstrap.com/) - Used to style pages
