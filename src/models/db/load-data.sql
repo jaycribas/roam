@@ -1,7 +1,7 @@
-INSERT INTO users (email, password, city, joined_on, img_url) VALUES
-  ('foo@bar.com', '123', 'Oakland', '10/10/2017', 'http://lorempixel.com/output/cats-q-c-400-400-5.jpg'),
-  ('cat@damon.com', '123', 'San Francisco', '09/10/2006', 'http://lorempixel.com/output/cats-q-c-400-400-7.jpg'),
-  ('diane@kitten.com', '123', 'San Francisco', '04/10/2016', 'http://lorempixel.com/output/cats-q-c-400-400-8.jpg');
+INSERT INTO users (email, password, city, joined_on, img_url, name) VALUES
+  ('foo@bar.com', '123', 'Oakland', '10/10/2017', 'http://lorempixel.com/output/cats-q-c-400-400-5.jpg', 'Foo Bar'),
+  ('cat@damon.com', '123', 'San Francisco', '09/10/2006', 'http://lorempixel.com/output/cats-q-c-400-400-7.jpg', 'Cat Damon'),
+  ('diane@kitten.com', '123', 'San Francisco', '04/10/2016', 'http://lorempixel.com/output/cats-q-c-400-400-8.jpg', 'Diane Kitten');
 
 INSERT INTO cities (name, img_url) VALUES
   ('Oakland', 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Oldoakland02262006.JPG/1920px-Oldoakland02262006.JPG'),

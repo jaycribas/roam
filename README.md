@@ -48,6 +48,7 @@ $ npm start
 ## Built With
 
 * [Express](https://expressjs.com/) - Node.js web application framework
+* [Express Session](https://github.com/expressjs/session) - Express middleware used to store user authentication state
 * [Postgres](https://www.postgresql.org/) - SQL relational database
 * [bcrypt](https://github.com/kelektiv/node.bcrypt.js) - Library used to hash user passwords
 * [EJS](http://ejs.co/) - views templating language to produce reusable HTML
