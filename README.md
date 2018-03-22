@@ -2,7 +2,8 @@
 
 ![Roam](/public/images/roam-screenshot.jpg)
 
-A travel community for users to share tips about their favorite locations around the world. A user can create an account, update their profile, and leave travel trips on featured cities.
+A travel community for users to share tips about their favorite locations around the world. A user can create an account, update their profile, and leave travel trips on featured cities.  
+[[Demo]](https://roam-world.herokuapp.com/)
 
 ## Getting Started
 
