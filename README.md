@@ -1,5 +1,7 @@
 # Roam
 
+![Roam](/public/images/roam-screenshot.jpg)
+
 A travel community for users to share tips about their favorite locations around the world. A user can create an account, update their profile, and leave travel trips on featured cities.
 
 ## Getting Started
@@ -40,9 +42,9 @@ Install dependencies.
 $ npm install
 ```
 
-Run local server and navigate to `http://localhost:3000` in browser.
+Run local development server and navigate to `http://localhost:3000` in browser.
 ```
-$ npm start
+$ npm run start:dev
 ```
 
 ## Built With
