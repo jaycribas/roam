@@ -45,6 +45,7 @@ p {
   top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
+  -webkit-font-smoothing: antialiased;
 }
 
 .search {
@@ -114,8 +115,8 @@ img.logo {
 }
 
 /* PROFILE */
-dd {
-  margin-bottom: 40px;
+.review-body {
+  margin-bottom: 2rem;
 }
 
 .user-name {
@@ -217,4 +218,9 @@ a:hover {
 .new-post-form {
   max-width: 600px;
   margin: auto;
+}
+
+#new-post-form > input {
+  width: 100%;
+  margin-bottom: 1em;
 }
