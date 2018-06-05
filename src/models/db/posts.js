@@ -39,7 +39,15 @@ const findById = (id) => {
 
 const findByUserId = (id) => {
   return db.any(`
-    SELECT * FROM
+    SELECT
+      posts.id,
+      user_id,
+      city_id,
+      title,
+      body,
+      posted_on,
+      name
+    FROM
       posts
     JOIN
       cities ON cities.id = city_id
