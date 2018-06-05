@@ -158,8 +158,12 @@ a:hover {
   transition: none;
 }
 
-.edit-button {
+.edit-button:first-of-type {
   padding: 0;
+}
+
+.edit-button {
+  padding: 0 0 0 10px;
 }
 
 .edit-button:hover {
